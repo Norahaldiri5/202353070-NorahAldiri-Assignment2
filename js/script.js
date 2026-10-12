@@ -1,9 +1,27 @@
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
 
+/* =========================
+   Save Theme Preference
+========================= */
+
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "light") {
+   document.body.classList.add("light-mode");
+   themeIcon.src = "assets/images/moon.png";
+   themeToggle.setAttribute("aria-label", "Switch to dark mode");
+}
+
 themeToggle.addEventListener("click", function () {
 
    document.body.classList.toggle("light-mode");
+
+   localStorage.setItem(
+      "portfolio-theme",
+      document.body.classList.contains("light-mode") ? "light" : "dark"
+   );
+
 
    if (document.body.classList.contains("light-mode")) {
 
