@@ -27,3 +27,29 @@ themeToggle.addEventListener("click", function () {
    }
 
 });
+
+/* =========================
+   Live Project Search
+========================= */
+
+const projectSearch = document.getElementById("project-search-input");
+const projectCards = document.querySelectorAll(".project-card");
+const noProjectsMessage = document.getElementById("no-projects-message");
+
+projectSearch.addEventListener("input", function () {
+   const searchText = projectSearch.value.trim().toLowerCase();
+   let visibleProjects = 0;
+
+   projectCards.forEach(function (card) {
+      const projectText = card.textContent.toLowerCase();
+      const matchesSearch = projectText.includes(searchText);
+
+      card.hidden = !matchesSearch;
+
+      if (matchesSearch) {
+         visibleProjects++;
+      }
+   });
+
+   noProjectsMessage.hidden = visibleProjects > 0;
+});

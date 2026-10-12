@@ -373,6 +373,48 @@ body.light-mode #about::before {
    Projects
 ========================= */
 
+/* =========================
+   Project Search
+========================= */
+
+.project-search {
+   max-width: 600px;
+   margin: 0 auto 30px;
+}
+
+.project-search label {
+   display: block;
+   margin-bottom: 10px;
+   color: var(--strong-text);
+   font-weight: bold;
+}
+
+.project-search input {
+   width: 100%;
+   padding: 14px 18px;
+   background-color: var(--input-background);
+   color: var(--strong-text);
+   border: 1px solid var(--input-border);
+   border-radius: 10px;
+   font-size: 1rem;
+}
+
+.project-search input:focus {
+   outline: 2px solid var(--accent);
+   border-color: var(--accent);
+}
+
+.no-projects-message {
+   text-align: center;
+   color: var(--accent);
+   font-weight: 600;
+   margin: 25px 0;
+}
+
+.no-projects-message[hidden] {
+   display: none;
+}
+
 .projects-container {
    display: flex;
 
@@ -409,6 +451,10 @@ body.light-mode #about::before {
    border-color: var(--accent-dark);
 
    box-shadow: 0 14px 32px var(--shadow);
+}
+
+.project-card[hidden] {
+   display: none;
 }
 
 
