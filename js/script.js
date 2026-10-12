@@ -128,3 +128,31 @@ contactForm.addEventListener("submit", function (event) {
       contactForm.reset();
    }
 });
+
+
+/* =========================
+   Project Reveal Animation
+========================= */
+
+if ("IntersectionObserver" in window &&
+   !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+  const revealObserver = new IntersectionObserver(
+     function (entries, observer) {
+        entries.forEach(function (entry) {
+           if (entry.isIntersecting) {
+              entry.target.classList.remove("reveal-pending");
+              entry.target.classList.add("reveal-visible");
+              observer.unobserve(entry.target);
+           }
+        });
+     },
+     { threshold: 0.15 }
+  );
+
+  projectCards.forEach(function (card) {
+     card.classList.add("reveal-pending");
+     revealObserver.observe(card);
+  });
+}
+

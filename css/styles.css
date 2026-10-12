@@ -439,10 +439,13 @@ body.light-mode #about::before {
 
    box-shadow: 0 8px 25px var(--shadow);
 
+   
    transition:
-      transform 0.3s,
-      box-shadow 0.3s,
-      border-color 0.3s;
+   transform 0.5s ease,
+   opacity 0.5s ease,
+   box-shadow 0.3s,
+   border-color 0.3s;
+
 }
 
 .project-card:hover {
@@ -455,6 +458,30 @@ body.light-mode #about::before {
 
 .project-card[hidden] {
    display: none;
+}
+
+
+/* =========================
+   Project Reveal Animation
+========================= */
+
+.project-card.reveal-pending {
+   opacity: 0;
+   transform: translateY(25px);
+}
+
+.project-card.reveal-visible {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .project-card.reveal-pending,
+   .project-card.reveal-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+   }
 }
 
 
