@@ -475,6 +475,10 @@ body.light-mode #about::before {
    transform: translateY(0);
 }
 
+.project-card.reveal-visible:hover {
+   transform: translateY(-6px);
+}
+
 @media (prefers-reduced-motion: reduce) {
    .project-card.reveal-pending,
    .project-card.reveal-visible {
