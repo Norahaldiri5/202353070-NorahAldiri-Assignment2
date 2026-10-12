@@ -648,6 +648,41 @@ textarea {
 
 
 /* =========================
+   Contact Form Feedback
+========================= */
+
+.form-error {
+   display: block;
+   margin-top: 6px;
+   color: #ff7b86;
+   font-size: 0.9rem;
+   font-weight: 500;
+}
+
+.form-feedback {
+   margin-top: 18px;
+   color: #57d9a3;
+   font-size: 0.95rem;
+   font-weight: 600;
+   line-height: 1.6;
+}
+
+.form-error:empty,
+.form-feedback:empty {
+   display: none;
+}
+
+body.light-mode .form-error {
+   color: #b42332;
+}
+
+body.light-mode .form-feedback {
+   color: #18794e;
+}
+
+
+
+/* =========================
    Send Button
 ========================= */
 

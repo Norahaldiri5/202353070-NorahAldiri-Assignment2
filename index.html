@@ -170,43 +170,53 @@
    </div>
 
    <!-- Contact Form -->
-   <form>
+   
+<form id="contact-form" novalidate>
 
-      <p>
-         <label for="name">Name</label>
+   <p>
+      <label for="name">Name</label>
 
-         <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your name">
-      </p>
+      <input
+         type="text"
+         id="name"
+         name="name"
+         placeholder="Your name">
 
-      <p>
-         <label for="email">Email</label>
+      <span class="form-error" id="name-error" aria-live="polite"></span>
+   </p>
 
-         <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email">
-      </p>
+   <p>
+      <label for="email">Email</label>
 
-      <p>
-         <label for="message">Message</label>
+      <input
+         type="email"
+         id="email"
+         name="email"
+         placeholder="Your email">
 
-         <textarea
-            id="message"
-            name="message"
-            rows="6"
-            placeholder="Write your message here"></textarea>
-      </p>
+      <span class="form-error" id="email-error" aria-live="polite"></span>
+   </p>
 
-      <button type="submit">
-         Send Message
-      </button>
+   <p>
+      <label for="message">Message</label>
 
-   </form>
+      <textarea
+         id="message"
+         name="message"
+         rows="6"
+         placeholder="Write your message here"></textarea>
+
+      <span class="form-error" id="message-error" aria-live="polite"></span>
+   </p>
+
+   <button type="submit">
+      Send Message
+   </button>
+
+   <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+</form>
+
 
 </section>
 

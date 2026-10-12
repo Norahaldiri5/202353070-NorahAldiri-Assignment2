@@ -71,3 +71,60 @@ projectSearch.addEventListener("input", function () {
 
    noProjectsMessage.hidden = visibleProjects > 0;
 });
+
+
+/* =========================
+   Contact Form Validation
+========================= */
+
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function (event) {
+   event.preventDefault();
+
+   const name = document.getElementById("name").value.trim();
+   const email = document.getElementById("email").value.trim();
+   const message = document.getElementById("message").value.trim();
+
+   const nameError = document.getElementById("name-error");
+   const emailError = document.getElementById("email-error");
+   const messageError = document.getElementById("message-error");
+   const formFeedback = document.getElementById("form-feedback");
+
+   // Clear previous messages
+   nameError.textContent = "";
+   emailError.textContent = "";
+   messageError.textContent = "";
+   formFeedback.textContent = "";
+
+   let isValid = true;
+
+   // Name validation
+   if (name === "") {
+      nameError.textContent = "Please enter your name.";
+      isValid = false;
+   }
+
+   // Email validation
+   if (email === "") {
+      emailError.textContent = "Please enter your email.";
+      isValid = false;
+   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailError.textContent = "Please enter a valid email address.";
+      isValid = false;
+   }
+
+   // Message validation
+   if (message === "") {
+      messageError.textContent = "Please enter your message.";
+      isValid = false;
+   }
+
+   // Show success feedback only if all fields are valid
+   if (isValid) {
+      formFeedback.textContent =
+         "Your message has been validated successfully. This form is a demo and does not send emails.";
+
+      contactForm.reset();
+   }
+});
